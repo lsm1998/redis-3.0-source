@@ -1,0 +1,11 @@
+源码解析文章：
+https://redissrc.readthedocs.io/en/latest/
+https://cloud.tencent.com/developer/article/1417951
+
+
+set命令大体调用链：
+ae.c 文件aeProcessEvents(aeEventLoop *eventLoop, int flags)方法开始处理事件 -》
+判断事件数量，并循环处理它们，依次处理读事件、写事件，属于读事件，rfileProc -》
+readQueryFromClient -》
+processInputBuffer -》
+processCommand -》
